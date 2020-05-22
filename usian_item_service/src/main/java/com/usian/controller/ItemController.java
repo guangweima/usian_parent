@@ -4,6 +4,7 @@ import com.usian.pojo.TbItem;
 import com.usian.service.ItemService;
 import com.usian.utils.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,6 +33,11 @@ public class ItemController {
     @RequestMapping("/selectTbItemAllByPage")
     public PageResult selectTbItemAllByPage(Integer page,Long rows){
         return itemService.selectTbItemAllByPage(page,rows);
+    }
+
+    @RequestMapping("/insertTbItem")
+    public Integer insertTbItem(@RequestBody TbItem tbItem, String desc, String itemParams){
+        return itemService.insertTbItem(tbItem,desc,itemParams);
     }
 
 }

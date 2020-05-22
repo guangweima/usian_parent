@@ -5,6 +5,7 @@ import com.usian.pojo.TbItemCat;
 import com.usian.utils.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class ItemCatController {
     private ItemServiceFeign itemServiceFeign;
 
     @RequestMapping("/selectItemCategoryByParentId")
-    public Result selectItemCategoryByParentId(Long id){
+    public Result selectItemCategoryByParentId(@RequestParam(defaultValue = "0") Long id){
         List<TbItemCat> tbItemCatList = itemServiceFeign.selectItemCategoryByParentId(id);
         if(tbItemCatList!=null && tbItemCatList.size()>0){
             return Result.ok(tbItemCatList);
