@@ -14,7 +14,10 @@ public class ItemCategoryController {
     @Autowired
     private ItemServiceFeign itemServiceFeign;
 
-
+    /**
+     * 查询商品分类菜单
+     * @return
+     */
     @RequestMapping("/selectItemCategoryAll")
     public Result selectItemCategoryAll(){
         CatResult catResult = itemServiceFeign.selectItemCategoryAll();
