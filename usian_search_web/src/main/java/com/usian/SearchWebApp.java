@@ -1,15 +1,15 @@
 package com.usian;
 
-import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableDiscoveryClient
-@MapperScan("com.usian.mapper")
-public class CotnentServiceApp {
+@EnableFeignClients //扫描feign接口
+@EnableDiscoveryClient//注册到eureka
+public class SearchWebApp {
     public static void main(String[] args) {
-        SpringApplication.run(CotnentServiceApp.class, args);
+        SpringApplication.run(SearchWebApp.class, args);
     }
 }

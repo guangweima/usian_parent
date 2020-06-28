@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: usian-order-web
+server:
+  port: 8103
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:8761/eureka/
+#解决feign超时
+ribbon:
+  ConnectTimeout: 5000
+  ReadTimeout: 5000

@@ -1,6 +1,7 @@
 package com.usian.controller;
 
 import com.usian.pojo.TbItem;
+import com.usian.pojo.TbItemDesc;
 import com.usian.service.ItemService;
 import com.usian.utils.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,11 @@ public class ItemController {
     @RequestMapping("/insertTbItem")
     public Integer insertTbItem(@RequestBody TbItem tbItem, String desc, String itemParams){
         return itemService.insertTbItem(tbItem,desc,itemParams);
+    }
+
+    @RequestMapping("/selectItemDescByItemId")
+    public TbItemDesc selectItemDescByItemId(Long itemId){
+        return itemService.selectItemDescByItemId(itemId);
     }
 
 }

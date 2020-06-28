@@ -9,7 +9,7 @@ spring:
     name: usian-item-service
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/usian?characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.204.141:8066/usian?characterEncoding=UTF-8
     username: root
     password: 1111
     type: com.alibaba.druid.pool.DruidDataSource
@@ -27,6 +27,28 @@ spring:
         max-active: 20
         max-idle: 10
         min-idle: 5
-
+  rabbitmq:
+    host: 192.168.204.129
+    port: 5672
+    username: admin
+    password: 1111
+    virtual-host: /
+    listener:
+      direct:
+        acknowledge-mode: manual
+      simple:
+        acknowledge-mode: manual
 #商城首页分类菜单
 PROTAL_CATRESULT_KEY: PROTAL_CATRESULT_KEY
+
+#商品详情
+ITEM_INFO: ITEM_INFO
+BASE: BASE
+DESC: DESC
+PARAM: PARAM
+ITEM_INFO_EXPIRE: 86400
+
+#分布式锁
+SETNX_BASC_LOCK_KEY: SETNX_BASC_LOCK_KEY
+SETNX_DESC_LOCK_KEY: SETNX_DESC_LOCK_KEY
+SETNX_PARAM_LOCK_KEY: SETNX_PARAM_LOCK_KEY

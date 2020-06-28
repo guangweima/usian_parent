@@ -1,6 +1,7 @@
 package com.usian.controller;
 
 import com.usian.pojo.TbItemParam;
+import com.usian.pojo.TbItemParamItem;
 import com.usian.service.ItemParamService;
 import com.usian.utils.PageResult;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,10 @@ public class ItemParamController {
     @RequestMapping("/insertItemParam")
     public Integer insertItemParam(Long itemCatId, String paramData){
         return itemParamService.insertItemParam(itemCatId,paramData);
+    }
+
+    @RequestMapping("/selectTbItemParamItemByItemId")
+    public TbItemParamItem selectTbItemParamItemByItemId(Long itemId){
+        return itemParamService.selectTbItemParamItemByItemId(itemId);
     }
 }
